@@ -20,8 +20,8 @@ module HalfPipe
         railties_requires = File.read(File.join(self.class.source_root, "railties.rb"))
         gsub_file "config/application.rb", %r{require 'rails/all'}, railties_requires
 
-        gsub_file "app/views/layouts/application.html.erb", '<%= javascript_include_tag "application" %>\n', ''
-        insert_into_file "app/views/layouts/application.html.erb", '<%= requirejs_include_tag "/scripts/main" %>', before: "</body>"
+        gsub_file "app/views/layouts/application.html.erb", %r{\s*<%= javascript_include_tag "application" %>$}, ''
+        insert_into_file "app/views/layouts/application.html.erb", %Q{  <%= requirejs_include_tag "/scripts/application.js" %>\n  }, before: "</body>"
 
         directory "app"
 
