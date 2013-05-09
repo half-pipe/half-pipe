@@ -21,7 +21,7 @@ module HalfPipe
 
         gsub_file "config/application.rb", %r{require 'rails/all'}, railties_requires
 
-        empty_directory "app/client"
+        empty_directory "app/scripts"
         empty_directory "app/styles"
 
         template "main.scss", "app/styles/main.scss"
@@ -40,7 +40,7 @@ module HalfPipe
         run "bower install"
         run "grunt build"
 
-        say "You may now safely migrate your assets to app/client and/or app/styles. Feel free to delete app/assets/javascripts and app/assets/stylesheets when you're done."
+        say "You may now safely migrate your assets to app/scripts and/or app/styles. Feel free to delete app/assets/javascripts and app/assets/stylesheets when you're done."
       end
     end
 
