@@ -18,13 +18,19 @@ module HalfPipe
         comment_lines "config/application.rb", %r{sprockets/railtie}
 
         railties_requires = File.read(File.join(self.class.source_root, "railties.rb"))
-
         gsub_file "config/application.rb", %r{require 'rails/all'}, railties_requires
 
-        empty_directory "app/scripts"
-        empty_directory "app/styles"
+        gsub_file "app/views/layouts/application.html.erb", '<%= javascript_include_tag "application" %>\n', ''
+        insert_into_file "app/views/layouts/application.html.erb", '<%= requirejs_include_tag "/scripts/main" %>', before: "</body>"
 
-        template "main.scss", "app/styles/main.scss"
+        directory "app"
+
+        empty_directory "app/scripts"
+
+        inside "app/scripts" do
+          template "main.js", force: true
+          template "application.js", force: true
+        end
 
         initializer "sass.rb" do
           %Q{
@@ -42,6 +48,15 @@ module HalfPipe
 
         say "You may now safely migrate your assets to app/scripts and/or app/styles. Feel free to delete app/assets/javascripts and app/assets/stylesheets when you're done."
       end
+
+      def main_module_name
+        app_name.underscore.dasherize
+      end
+
+      def app_name
+        Rails.application.class.parent_name
+      end
+
     end
 
   end

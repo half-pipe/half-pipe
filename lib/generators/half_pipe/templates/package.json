@@ -1,5 +1,5 @@
 {
-  "name": "<%= Rails.application.class.parent_name %>",
+  "name": "<%= app_name %>",
   "devDependencies": {
     "grunt-cli": "~0.1.7",
     "grunt": "~0.4.1",
