@@ -6,7 +6,7 @@ Grunt/Bower-based asset workflow for Ruby web frameworks
 
 This initial release is to get us something easy to include in our projects, and to start getting feedback from the community. As such, this library currently assumes you already have the same problems we do and does not explain the tools we use or why we use them. If you do not have experience with [Grunt](http://www.gruntjs.com), [RequireJS](http://www.requirejs.org), [Bower](http://bower.io) and [Sass](http://www.sass-lang.com) you probably will want to wait for a future release.
 
-If you are familiar with these (or similar) tools (and want to use them in Rails), then please feel free to provide feedback in the form of a Github issue.
+If you are familiar with these (or similar) tools (and want to use them in Rails), then give it a try. Please feel free to provide any feedback in the form of a Github issue.
 
 ## Getting Started
 
