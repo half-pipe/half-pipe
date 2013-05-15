@@ -1,12 +1,10 @@
 # Half Pipe
 
-Grunt/Bower-based asset workflow for Ruby web frameworks
+Gem to replace the Rails asset pipeline with a Grunt.js-based workflow, providing dependencies via Bower.
 
-## Warning
+## Who is this For?
 
-This initial release is to get us something easy to include in our projects, and to start getting feedback from the community. As such, this library currently assumes you already have the same problems we do and does not explain the tools we use or why we use them. If you do not have experience with [Grunt](http://www.gruntjs.com), [RequireJS](http://www.requirejs.org), [Bower](http://bower.io) and [Sass](http://www.sass-lang.com) you probably will want to wait for a future release.
-
-If you are familiar with these (or similar) tools (and want to use them in Rails), then give it a try. Please feel free to provide any feedback in the form of a Github issue.
+This initial release assumes you have been using [Grunt.js](http://www.gruntjs.com) in non-Rails apps and would like to start using it in Rails as well. It uses [Bower](http://bower.io) for dependency management, [RequireJS](http://www.requirejs.org) for Javascript modules and Sass for CSS. If you use alternatives to these tools, we'd love to hear from you.
 
 ## Getting Started
 
@@ -93,6 +91,7 @@ In this early release if you want to configure anything, you'll have to manually
 
 ## Roadmap
 
+- Asset fingerprinting
 - Precompilation of client-side templates
 - Javascript module generator
 - Configurable asset directories
