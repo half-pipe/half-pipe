@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = Half::Pipe::VERSION
   gem.authors       = ["Joe Fiorini"]
   gem.email         = ["joe@joefiorini.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Grunt-based workflow for your Rails assets}
+  gem.summary       = %q{Gem to replace the Rails asset pipeline with a Grunt.js-based workflow, providing dependencies via Bower.}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
