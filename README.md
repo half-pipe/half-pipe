@@ -91,13 +91,17 @@ In this early release if you want to configure anything, you'll have to manually
 
 ## Roadmap
 
-- Asset fingerprinting
+- v0.2 - Asset fingerprinting
+
+## Future Features
+
 - Precompilation of client-side templates
 - Javascript module generator
 - Configurable asset directories
 - Configurable build directories
 - Better support for images
-- Better support for non-Rails Ruby frameworks
+- Padrino support
+- Middleman support
 - Support for most popular [AltJS](http://www.altjs.com) languages
 - BYO support for less common languages
 - Automatic symlinking of CSS files within bower to SCSS partials within `app/styles`
