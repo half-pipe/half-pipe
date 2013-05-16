@@ -1,0 +1,34 @@
+{
+  "camelcase": true,
+  "indent": 2,
+  "white": false,
+  "curly": true,
+  "eqeqeq": true,
+  "immed": true,
+  "latedef": true,
+  "newcap": false,
+  "noarg": true,
+  "sub": true,
+  "undef": true,
+  "boss": true,
+  "eqnull": true,
+  "browser": true,
+  "globals": {
+    "test": true,
+    "asyncTest": true,
+    "start": true,
+    "expect": true,
+    "module": true,
+    "define": true,
+    "sinon": true,
+    "require": true,
+    "console": true,
+    "Class": true,
+    "Events": true,
+    "Options": true,
+    "Element": true,
+    "$": true,
+    "$$": true
+  }
+}
+

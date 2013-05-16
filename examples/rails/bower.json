@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "html5shiv": "latest",
+    "requirejs": "latest",
+    "normalize-css": "latest"
+  }
+}
+

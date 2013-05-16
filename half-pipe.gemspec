@@ -18,4 +18,5 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   gem.add_dependency "rack-asset-compiler"
+  gem.add_dependency "sass"
 end

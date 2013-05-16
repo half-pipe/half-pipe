@@ -2,13 +2,13 @@
 <html>
 <head>
   <title>Blog</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag "/styles/main" %>
 </head>
 <body>
 
-<%= yield %>
+  <%= yield %>
 
+  <%= requirejs_include_tag "/scripts/application.js" %>
 </body>
 </html>
