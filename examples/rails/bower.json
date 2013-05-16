@@ -2,7 +2,8 @@
   "dependencies": {
     "html5shiv": "latest",
     "requirejs": "latest",
-    "normalize-css": "latest"
+    "normalize-css": "latest",
+    "flight": "latest",
+    "jquery": "~2.0.0"
   }
 }
-

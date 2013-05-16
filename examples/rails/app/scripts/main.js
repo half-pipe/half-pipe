@@ -2,13 +2,13 @@
 
 define('blog',
   [
-    // Add your dependencies here
+    'features/posts'
   ],
 
-  function(/* modules */){
+  function(Posts){
 
     function initialize(){
-      // Add your initialization code here
+      Posts.attachTo("#posts");
     }
 
     return initialize;
