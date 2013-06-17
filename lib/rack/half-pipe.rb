@@ -10,6 +10,7 @@ module Rack
       @compilers << Rack::AssetCompiler.new(app, scripts_config)
       @compilers << Rack::AssetCompiler.new(app, bower_js_config)
       @compilers << Rack::AssetCompiler.new(app, bower_css_config)
+      @compilers << Rack::AssetCompiler.new(app, images_config)
       @compilers << Rack::SassCompiler.new(app, sass_config)
 
       @app = app
@@ -51,6 +52,14 @@ module Rack
         url: '/components',
         source_extension: 'js',
         content_type: 'application/javascript',
+        compiler: pass_thru_compiler
+      }
+    end
+
+    def images_config
+      {
+        source_dir: 'app/images',
+        url: '/images',
         compiler: pass_thru_compiler
       }
     end
