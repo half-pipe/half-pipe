@@ -16,38 +16,20 @@ module Rack
     end
 
     def call(env)
-      res = @compilers[0].call(env)
 
-      if res[0] != 404
-        return res
+      res = @compilers.reduce([404]) do |memo,compiler|
+        if memo[0] == 404
+          compiler.call(env)
+        else
+          memo
+        end
       end
 
-      res = @compilers[1].call(env)
-
-      if res[0] != 404
-        return res
+      if res[0] == 404
+        @app.call(env)
+      else
+        res
       end
-
-      res = @compilers[2].call(env)
-
-      if res[0] != 404
-        return res
-      end
-
-      res = @compilers[3].call(env)
-
-      if res[0] != 404
-        return res
-      end
-
-      @app.call(env)
-
-
-        # @compilers.reduce(nil) do |response,compiler|
-        #   response.tap{ |u| puts "response: #{response.inspect}" } || compiler.call(env).tap { |u| puts "call returned: #{u.inspect}" }
-        # end
-
-      # res || @app.call(env)
 
     end
 
