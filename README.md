@@ -100,8 +100,10 @@ In this early release if you want to configure anything, you'll have to manually
 - Configurable asset directories
 - Configurable build directories
 - Better support for images
+- Support for additional module loaders (including ES6 modules)
 - Padrino support
 - Middleman support
 - Support for most popular [AltJS](http://www.altjs.com) languages
 - BYO support for less common languages
 - Automatic symlinking of CSS files within bower to SCSS partials within `app/styles`
+- Read .bowerrc for Bower directory
