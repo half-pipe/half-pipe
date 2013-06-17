@@ -35,6 +35,7 @@ module HalfPipe
         initializer "sass.rb" do
           %Q{
           require 'sass/importers/bower_importer'
+          require 'sass/half_pipe_functions'
           Sass.load_paths << Sass::Importers::BowerImporter.new("components")
           }
         end
