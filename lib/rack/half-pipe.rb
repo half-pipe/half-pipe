@@ -77,7 +77,12 @@ module Rack
     def sass_config
       {
         :source_dir => 'app/styles',
-        :url => '/styles'
+        :url => '/styles',
+        sass_options: {
+          debug_info: true,
+          line_comments: false,
+          style: :expanded
+        }
       }
     end
 
