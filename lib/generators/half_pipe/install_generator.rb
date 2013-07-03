@@ -23,7 +23,7 @@ module HalfPipe
         gsub_file "app/views/layouts/application.html.erb", %r{\s*<%= javascript_include_tag "application" %>$}, ''
         insert_into_file "app/views/layouts/application.html.erb", %Q{  <%= requirejs_include_tag "/scripts/application.js" %>\n  }, before: "</body>"
 
-        insert_into_file ".gitignore", %w(node_modules bower_components public/scripts public/styles public/images).join("\n")
+        append_to_file ".gitignore", %w(node_modules bower_components public/scripts public/styles public/images).join("\n"), force: true
 
         directory "app"
 
