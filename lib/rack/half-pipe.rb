@@ -48,7 +48,7 @@ module Rack
 
     def bower_js_config
       {
-        source_dir: 'components',
+        source_dir: 'bower_components',
         url: '/components',
         source_extension: 'js',
         content_type: 'application/javascript',
