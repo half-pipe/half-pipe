@@ -89,6 +89,15 @@ Build assets by running `grunt build`. This will compile Javascripts to `public/
 
 In this early release if you want to configure anything, you'll have to manually change `Gruntfile.js`. We'd like to make this more invisible in the future; please post any use cases for configuration as Github issues.
 
+## History
+
+### 07/19/2013 v0.1.0
+
+- Override Rails' `rake assets:precompile` to run `grunt build` for easier deployments
+- Allow for configuring asset server with `config.half_pipe.serve_assets = true|false`
+- Use Almond for requirejs optimization so as not to need requirejs in production
+
+
 ## Roadmap
 
 - v0.2 - Asset fingerprinting
