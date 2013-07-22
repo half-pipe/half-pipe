@@ -91,6 +91,10 @@ In this early release if you want to configure anything, you'll have to manually
 
 ## History
 
+### 07/22/2013 v0.2.0
+
+- Removes dependency on rack-asset-compiler and embeds the code in this gem
+
 ### 07/19/2013 v0.1.0
 
 - Override Rails' `rake assets:precompile` to run `grunt build` for easier deployments
