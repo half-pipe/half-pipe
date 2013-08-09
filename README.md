@@ -91,6 +91,10 @@ In this early release if you want to configure anything, you'll have to manually
 
 ## History
 
+### 08/09/2013 v0.2.2
+
+- Use exec rather than system in rake task so Capistrano exists properly
+
 ### 07/22/2013 v0.2.0
 
 - Removes dependency on rack-asset-compiler and embeds the code in this gem
