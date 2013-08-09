@@ -13,7 +13,7 @@ namespace :half_pipe do
                                               "half_pipe:generate_grunt_runner"] do |_,params|
     half_pipe.grunt_command = "#{half_pipe.grunt_runner} #{params[:command]}"
     puts "executing: #{half_pipe.grunt_command.inspect}"
-    system half_pipe.grunt_command
+    exec half_pipe.grunt_command
   end
 
   task :generate_grunt_runner do
