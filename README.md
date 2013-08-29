@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/d-i/half-pipe.png?label=ready)](https://waffle.io/d-i/half-pipe)  
 # Half Pipe
 
 Gem to replace the Rails asset pipeline with a Grunt.js-based workflow, providing dependencies via Bower.
