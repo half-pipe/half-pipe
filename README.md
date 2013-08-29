@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/d-i/half-pipe.png?label=ready)](https://waffle.io/d-i/half-pipe)  
 # Half Pipe
 
 [![Stories in Ready](https://badge.waffle.io/d-i/half-pipe.png)](http://waffle.io/d-i/half-pipe)
