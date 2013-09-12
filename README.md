@@ -8,6 +8,10 @@ Gem to replace the Rails asset pipeline with a Grunt.js-based workflow, providin
 
 This initial release assumes you have been using [Grunt.js](http://www.gruntjs.com) in non-Rails apps and would like to start using it in Rails as well. It uses [Bower](http://bower.io) for dependency management, [RequireJS](http://www.requirejs.org) for Javascript modules and Sass for CSS. If you use alternatives to these tools, we'd love to hear from you.
 
+## Looking for Contributors
+
+If you take a look at our [issue board on waffle.io](http://waffle.io/d-i/half-pipe) you'll see that we have some big plans for future releases of Half Pipe. If you are interested in working on a feature or fixing a bug, please feel free to move the issue to "In Progress" and send a PR when you're ready. If you have ideas or questions, please feel free to [open an issue](https://github.com/d-i/half-pipe/issues/new).
+
 ## Getting Started
 
 ### Directory Structure
