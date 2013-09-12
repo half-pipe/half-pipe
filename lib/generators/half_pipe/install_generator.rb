@@ -21,7 +21,7 @@ module HalfPipe
         gsub_file "config/application.rb", %r{require 'rails/all'}, railties_requires
 
         gsub_file "app/views/layouts/application.html.erb", %r{\s*<%= stylesheet_link_tag\s+"application".*%>$}, ''
-        gsub_file "app/views/layouts/application.html.erb", %r{\s*<%= javascript_include_tag "application" %>$}, ''
+        gsub_file "app/views/layouts/application.html.erb", %r{\s*<%= javascript_include_tag\s+"application".*%>$}, ''
         insert_into_file "app/views/layouts/application.html.erb", %Q{  <%= requirejs_include_tag "/scripts/application.js" %>\n  }, before: "</body>"
         insert_into_file "app/views/layouts/application.html.erb", %Q{  <%= stylesheet_link_tag "/styles/main.css" %>\n  }, before: "</head>"
 
