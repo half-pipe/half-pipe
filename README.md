@@ -4,6 +4,8 @@
 
 Gem to replace the Rails asset pipeline with a Grunt.js-based workflow, providing dependencies via Bower.
 
+Half Pipe is a generator to get you up and running quickly with a Grunt setup for building client-side code in Rails apps. We believe that your asset workflow is yours and you should be able to configure it however you need to.
+
 ## Who is this For?
 
 This initial release assumes you have been using [Grunt.js](http://www.gruntjs.com) in non-Rails apps and would like to start using it in Rails as well. It uses [Bower](http://bower.io) for dependency management, [RequireJS](http://www.requirejs.org) for Javascript modules and Sass for CSS. If you use alternatives to these tools, we'd love to hear from you.
