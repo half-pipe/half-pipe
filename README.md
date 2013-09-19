@@ -112,7 +112,7 @@ In this early release if you want to configure anything, you'll have to manually
 
 ## Roadmap
 
-- v0.2 - Asset fingerprinting
+We're currently undergoing some pretty major changes in the Half Pipe workflow. See our [milestones](/d-i/half-pipe/issues/milestones) for what's coming in the near future.
 
 ## Future Features
 
