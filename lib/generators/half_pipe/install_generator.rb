@@ -63,7 +63,12 @@ module HalfPipe
       end
 
       def install_dependencies
-        run "bundle install"
+        say_status :run, "bundle install"
+
+        bundle_path = Gem.bin_path("bundler", "bundle")
+        Bundler.with_clean_env do
+          `"#{Gem.ruby}" "#{bundle_path}" install`
+        end
         run "npm install"
       end
 
