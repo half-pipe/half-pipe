@@ -8,13 +8,16 @@ module HalfPipe
         @_half_pipe_source_root ||= File.expand_path("../templates", __FILE__)
       end
 
-      def create_initializer_file
+      def create_config_files
         template "package.json", "package.json"
         template "_bowerrc", ".bowerrc"
         template "bower.json", "bower.json"
         template "_jshintrc", ".jshintrc"
         template "Gruntfile.js", "Gruntfile.js"
+        template "config/half-pipe.json"
+      end
 
+      def remove_sprockets
         comment_lines "config/application.rb", %r{sprockets/railtie}
 
         railties_requires = File.read(File.join(self.class.source_root, "railties.rb"))
@@ -22,46 +25,73 @@ module HalfPipe
 
         gsub_file "app/views/layouts/application.html.erb", %r{\s*<%= stylesheet_link_tag\s+"application".*%>$}, ''
         gsub_file "app/views/layouts/application.html.erb", %r{\s*<%= javascript_include_tag\s+"application".*%>$}, ''
+      end
+
+      def insert_includes_into_layout
         insert_into_file "app/views/layouts/application.html.erb", %Q{  <%= requirejs_include_tag "/scripts/application.js" %>\n  }, before: "</body>"
         insert_into_file "app/views/layouts/application.html.erb", %Q{  <%= stylesheet_link_tag "/styles/main.css" %>\n  }, before: "</head>"
+      end
 
-        gsub_file "config/environments/development.rb", "config.assets.debug = true", "config.middleware.use Rack::HalfPipe"
-
-        append_to_file ".gitignore", %w(node_modules bower_components public/scripts public/styles public/images).join("\n"), force: true
-
-        directory "app"
-
+      def generate_scripts
         empty_directory "app/scripts"
 
-        inside "app/scripts" do
-          template "main.js", force: true
-          template "application.js", force: true
-        end
+        template "app/scripts/main.js"
+        template "app/scripts/application.js"
+      end
 
-        initializer "sass.rb" do
-          %Q{
-          require 'sass/importers/bower_importer'
-          require 'sass/half_pipe_functions'
-          Sass.load_paths << Sass::Importers::BowerImporter.new("bower_components")
-          }
-        end
+      def generate_stylesheets
+        template "app/styles/main.scss"
+      end
 
+      def insert_ignores
+        append_to_file ".gitignore", %w(node_modules bower_components public/assets).join("\n"), force: true
+      end
+
+      def generate_task_config_files
+        empty_directory "tasks/options"
+
+        inside "tasks/options" do
+          task_options_files.each do |f|
+            template File.basename(f), force: true
+          end
+        end
+      end
+
+      def patch_sass_imports
+        # TODO: Remove this once https://github.com/chriseppstein/sass-css-importer/pull/6 is accepted and released
+        gem "sass-css-importer", github: "joefiorini/sass-css-importer", branch: "load-paths"
+      end
+
+      def install_dependencies
+        run "bundle install"
         run "npm install"
+      end
 
+      def build_project
         ENV["PATH"] = "./node_modules/.bin:#{ENV["PATH"]}"
 
         run "bower install"
-        run "grunt build"
+        run "grunt build:public"
+      end
+
+
+      def finalize
 
         say "You may now safely migrate your assets to app/scripts and/or app/styles. Feel free to delete app/assets/javascripts and app/assets/stylesheets when you're done."
       end
+
+      protected
 
       def main_module_name
         app_name.underscore.dasherize
       end
 
       def app_name
-        Rails.application.class.parent_name
+        Rails.application.class.parent_name || "myapp"
+      end
+
+      def task_options_files
+        Dir[File.join(%W(#{File.dirname(__FILE__)} templates tasks options *.js))]
       end
 
     end
