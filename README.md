@@ -10,6 +10,16 @@ Half Pipe is a generator to get you up and running quickly with a Grunt setup fo
 
 This initial release assumes you have been using [Grunt.js](http://www.gruntjs.com) in non-Rails apps and would like to start using it in Rails as well. It uses [Bower](http://bower.io) for dependency management, [RequireJS](http://www.requirejs.org) for Javascript modules and Sass for CSS. If you use alternatives to these tools, we'd love to hear from you.
 
+## Alpha Version
+
+**NOTE** This README refers to the current stable version of Half Pipe (v0.2.4 at the time of writing). To use the new, Grunt-based workflow see our [milestones](/d-i/half-pipe/issues/milestones) and install an alpha version by specifying:
+
+```
+gem 'half-pipe', '~>0.3.0.alpha'
+```
+
+in your Gemfile.
+
 ## Looking for Contributors
 
 If you take a look at our [issue board on waffle.io](http://waffle.io/d-i/half-pipe) you'll see that we have some big plans for future releases of Half Pipe. If you are interested in working on a feature or fixing a bug, please feel free to move the issue to "In Progress" and send a PR when you're ready. If you have ideas or questions, please feel free to [open an issue](https://github.com/d-i/half-pipe/issues/new).
