@@ -12,7 +12,7 @@ This initial release assumes you have been using [Grunt.js](http://www.gruntjs.c
 
 ## Alpha Version
 
-**NOTE** This README refers to the current stable version of Half Pipe (v0.2.4 at the time of writing). To use the new, Grunt-based workflow see our [milestones](/d-i/half-pipe/issues/milestones) and install an alpha version by specifying:
+**NOTE** This README refers to the current stable version of Half Pipe (v0.2.4 at the time of writing). To use the new, Grunt-based workflow see our [milestones][] and install an alpha version by specifying:
 
 ```
 gem 'half-pipe', '~>0.3.0.alpha'
@@ -122,7 +122,7 @@ In this early release if you want to configure anything, you'll have to manually
 
 ## Roadmap
 
-We're currently undergoing some pretty major changes in the Half Pipe workflow. See our [milestones](/d-i/half-pipe/issues/milestones) for what's coming in the near future.
+We're currently undergoing some pretty major changes in the Half Pipe workflow. See our [milestones][] for what's coming in the near future.
 
 ## Future Features
 
@@ -138,3 +138,5 @@ We're currently undergoing some pretty major changes in the Half Pipe workflow. 
 - BYO support for less common languages
 - Automatic symlinking of CSS files within bower to SCSS partials within `app/styles`
 - Read .bowerrc for Bower directory
+
+[milestones]: http://github.com/d-i/half-pipe/issues/milestones
