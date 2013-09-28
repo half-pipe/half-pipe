@@ -4,8 +4,6 @@
     "bower": "~1.2.0"
   },
   "devDependencies": {
-    "yo": "~1.0.0-rc.1.4",
-    "generator-flight": "git://github.com/joefiorini/generator-flight",
     "grunt-cli": "~0.1.7",
     "grunt": "~0.4.1",
     "grunt-contrib-sass": "~0.3.0",
