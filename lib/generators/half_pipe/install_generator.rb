@@ -8,20 +8,7 @@ module HalfPipe
         @_half_pipe_source_root ||= File.expand_path("../templates", __FILE__)
       end
 
-      def welcome
-        say "*" * 120
-        say
-        say "Welcome to Half Pipe!"
-        say "I'm going to take some preliminary setup steps to get you going."
-        say
-        say "*" * 120
-      end
-
       def create_config_files
-        say
-        say "First I need to generate config files for NPM & Bower. This is where you'll put your asset building and browser dependencies in the future."
-        say
-        sleep 3
         template "package.json", "package.json"
         template "_bowerrc", ".bowerrc"
         template "bower.json", "bower.json"
@@ -31,10 +18,6 @@ module HalfPipe
       end
 
       def remove_sprockets
-        say
-        say "Half Pipe uses app/scripts and app/styles for your JavaScript and Stylesheet templates. I need to update your application layout to point to those, plus remove any traces of sprockets."
-        say
-        sleep 3
         comment_lines "config/application.rb", %r{sprockets/railtie}
 
         railties_requires = File.read(File.join(self.class.source_root, "railties.rb"))
@@ -50,10 +33,6 @@ module HalfPipe
       end
 
       def generate_scripts
-        say
-        say "Now I can generate some starter templates for your requirejs configuration and Sass imports"
-        say
-        sleep 3
         empty_directory "app/scripts"
 
         template "app/scripts/main.js"
@@ -69,10 +48,6 @@ module HalfPipe
       end
 
       def generate_task_config_files
-        say
-        say "All of your Grunt tasks will be configured by files in #{Rails.root.join("tasks/options")}. After I'm done, have a look there to see if you need to customize anything."
-        say
-        sleep 3
         empty_directory "tasks/options"
 
         inside "tasks/options" do
@@ -107,13 +82,7 @@ module HalfPipe
 
       def finalize
 
-        say
-        say "Congratulations!".upcase
-        say
-
         say "You may now safely migrate your assets to app/scripts and/or app/styles. Feel free to delete app/assets/javascripts and app/assets/stylesheets when you're done."
-        say
-        say "To start developing, fire up a development server with 'grunt server:debug'. You can continue to use 'http://localhost:3000' in your browser to access your app. I will take care of rebuilding your assets and restarting your Rails server as you work. Enjoy!"
       end
 
       protected
