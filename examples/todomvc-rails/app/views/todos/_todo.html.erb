@@ -1,0 +1,14 @@
+<li class="<%= "completed" if todo.completed? %>" id="<%= dom_id(todo) %>">
+  <div class="view">
+    <%= form_for(todo, url: toggle_todo_path(todo), method: :post, remote: true) do |f| %>
+      <%= f.check_box :completed, class: "toggle", "data-behavior" => "submit_on_check" %>
+    <% end %>
+    <label data-behavior="todo_title"><%= todo.title %></label>
+    <%= form_for(todo, method: :delete, remote: true) do |f| %>
+      <button type="submit" class="destroy"></button>
+    <% end %>
+  </div>
+  <%= form_for(todo, remote: true, html: { "data-behavior" => "edit_todo_form" }) do |f| %>
+    <%= f.text_field :title, class: "edit", "data-behavior" => "todo_title_input", "data-original-value" => todo.title %>
+  <% end %>
+</li>

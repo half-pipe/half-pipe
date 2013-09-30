@@ -1,0 +1,10 @@
+{
+  "name": "todos",
+  "dependencies": {
+    "html5shiv": "latest",
+    "requirejs": "latest",
+    "jquery": "latest",
+    "jquery-ujs": "latest",
+    "normalize-css": "latest"
+  }
+}

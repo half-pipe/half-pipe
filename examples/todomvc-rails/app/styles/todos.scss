@@ -1,0 +1,29 @@
+#main,
+#footer { display: none; }
+
+#todoapp {
+  &.has_todos #main,
+  &.has_todos #footer { display: inherit; }
+
+  #footer {
+    a.all { font-weight: bold; }
+  }
+
+  &.filtered.active {
+    #todo-list li.completed { display: none; }
+
+    #footer {
+      a.all { font-weight: normal; }
+      a.active { font-weight: bold; }
+    }
+  }
+
+  &.filtered.completed {
+    #todo-list li:not(.completed) { display: none; }
+
+    #footer {
+      a.all { font-weight: normal; }
+      a.completed { font-weight: bold; }
+    }
+  }
+}

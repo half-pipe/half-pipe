@@ -1,0 +1,21 @@
+<footer id="footer">
+  <span id="todo-count"><strong><%= Todo.active.count %></strong> <%= "item".pluralize(Todo.active.count) %> left</span>
+
+  <ul id="filters">
+    <li>
+      <%= link_to "All", todos_path, class: "all" %>
+    </li>
+    <li>
+      <%= link_to "Active", active_todos_path, class: "active" %>
+    </li>
+    <li>
+      <%= link_to "Completed", completed_todos_path, class: "completed" %>
+    </li>
+  </ul>
+
+  <% if Todo.completed.count > 0 %>
+  <%= form_tag(destroy_completed_todos_path, method: :delete, remote: true) do %>
+    <button id="clear-completed" type="submit">Clear completed (<%= Todo.completed.count %>)</button>
+  <% end %>
+  <% end %>
+</footer>
