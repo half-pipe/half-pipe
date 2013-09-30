@@ -36,7 +36,8 @@ module HalfPipe
         empty_directory "app/scripts"
 
         template "app/scripts/main.js"
-        template "app/scripts/application.js"
+
+        template "config/build.js"
       end
 
       def generate_stylesheets
