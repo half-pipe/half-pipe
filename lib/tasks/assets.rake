@@ -34,7 +34,7 @@ namespace :half_pipe do
 
     task :all do
       Rake::Task["half_pipe:environment"].invoke
-      Rake::Task["half_pipe:execute_grunt_command"].invoke("build")
+      Rake::Task["half_pipe:execute_grunt_command"].invoke("build:public")
     end
 
   end
