@@ -18,6 +18,8 @@ This initial release assumes you have been using [Grunt.js](http://www.gruntjs.c
 gem 'half-pipe', '~>0.3.0.alpha'
 ```
 
+The alpha uses `javascript_include_tag` instead of `requirejs_include_tag` as described in the [Rails Generator](#rails-generator) section below.
+
 in your Gemfile.
 
 ## Looking for Contributors
