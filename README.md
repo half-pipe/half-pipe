@@ -48,7 +48,7 @@ If you don't need to work on assets, nothing really changes for you. If you've n
 
 There are built-in helpers for referencing most assets.
 
-- `image\_tag "avatar.png"` will reference /assets/images/avatar.png
+- `image_tag "avatar.png"` will reference /assets/images/avatar.png
 - `javascript_include_tag "main"` will reference /assets/scripts/main.js
 - `stylesheet_link_tag "main"` will reference /assets/styles/main.css
 
