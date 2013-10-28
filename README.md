@@ -8,25 +8,82 @@ Half Pipe is a generator to get you up and running quickly with a Grunt setup fo
 
 ## Who is this For?
 
-This initial release assumes you have been using [Grunt.js](http://www.gruntjs.com) in non-Rails apps and would like to start using it in Rails as well. It uses [Bower](http://bower.io) for dependency management, [RequireJS](http://www.requirejs.org) for Javascript modules and Sass for CSS. If you use alternatives to these tools, we'd love to hear from you.
+This initial release assumes you have been using [Grunt.js](http://www.gruntjs.com) in non-Rails apps and would like to start using it in Rails as well. It uses [Bower](http://bower.io) for dependency management, [RequireJS](http://www.requirejs.org) for Javascript modules and Sass for CSS. If you use alternatives to these tools, we'd love to [hear from you][issue].
 
 ## Alpha Version
 
-**NOTE** This README refers to the current stable version of Half Pipe (v0.2.4 at the time of writing). To use the new, Grunt-based workflow see our [milestones][] and install an alpha version by specifying:
+**NOTE** This README refers to the alpha version of Half Pipe. I highly recommend using the alpha and following this README, but if you are on the 0.2 version please see [the previous README](https://github.com/d-i/half-pipe/blob/4a68659f215f939f7da9d3e5e8756c7f31a86177/README.md).
+
+## We Want Feedback
+
+Half Pipe is still in the early stages of development. The workflow has been extracted from our projects at [D-I](http://d-i.co) with inspiration from [ember-app-kit](http://github.com/stefanpenner/ember-app-kit). We are trying to build an extremely flexible and useful tool for front-end developers who work in Rails apps, while still adhering to good coding principles. If you want to use Half Pipe but feel hesitant for any reason, please feel free to [open up an issue telling us why][issue]. As we progress towards a 1.0 release, we want to hear from you to make this tool the best it can be.
+
+## Getting Started
+
+### Installing
+
+The Half Pipe gem is mostly a vehicle to bring a nice Grunt workflow into your Rails app. To set it up, add the following to your Gemfile:
 
 ```
 gem 'half-pipe', '~>0.3.0.alpha'
 ```
 
-The alpha uses `javascript_include_tag` instead of `requirejs_include_tag` as described in the [Rails Generator](#rails-generator) section below.
+After you install the gem, you can run `rails g half\_pipe:install` to setup the Grunt workflow. This will configure your app for node.js, copy over the Grunt setup, install node modules and run `grunt build:public`.
 
-in your Gemfile.
+From here you can move your stylesheets from `app/assets/stylesheets` to `app/styles` (make sure you replace [Sprockets directives](https://github.com/sstephenson/sprockets#managing-and-bundling-dependencies) with [Sass imports](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#import).
 
-## Looking for Contributors
+You can also move JavaScripts into `app/scripts`, but take care to make sure you wrap them in requirejs modules (see http://mikemurry.com/getting-started-with-require-js/ for a quick overview of requirejs) or else you won't be able to build.
 
-If you take a look at our [issue board on waffle.io](http://waffle.io/d-i/half-pipe) you'll see that we have some big plans for future releases of Half Pipe. If you are interested in working on a feature or fixing a bug, please feel free to move the issue to "In Progress" and send a PR when you're ready. If you have ideas or questions, please feel free to [open an issue](https://github.com/d-i/half-pipe/issues/new).
+### Working on Assets
 
-## Getting Started
+#### Front-end Developer Workflow
+
+Run `grunt server` and Half Pipe will start up your Rails app with a preview server for your assets. Browse to `http://localhost:3000` and use your app like normal. Grunt will watch assets and recompile automatically when you make changes. It will also restart your Rails app when you change files in `config` or `lib`, and any time you install new gems with Bundler.
+
+#### Back-end Developer Workflow
+
+If you don't need to work on assets, nothing really changes for you. If you've never used grunt before, install it with `npm install -g grunt-cli`. Then run `npm install` to install dependencies and then `grunt build:public` to get the assets into your public folder. Once you've done that, you will only need to use grunt when you need to get the latest changes to assets (this step will go away in the future, see #31).
+
+There are built-in helpers for referencing most assets.
+
+- `image\_tag "avatar.png"` will reference /assets/images/avatar.png
+- `javascript_include_tag "main"` will reference /assets/scripts/main.js
+- `stylesheet_link_tag "main"` will reference /assets/styles/main.css
+
+Half Pipe also provides helpers for Sass:
+
+- `image-url('avatar.png')` compiles to url(/assets/images/avatar.png)
+- `image-path('avatar.png')` compiles to /assets/images/avatar.png
+
+## Usage
+
+#### Usage of the app folder
+
+Only put assets that need to be processed by grunt in the app folder. For example, if you want to use Grunt to sprite your images then you can create an `app/icons` folder and output the sprite to `public/assets/images`. However, you should keep the rest of your images in your repository at `public/assets/images`. That way files that don't need to be processed will never get passed through Grunt, which makes it clear to everyone what is getting compiled and what isn't.
+
+- Including assets from Bower (JavaScript, Sass, Sass/CSS)
+
+#### Bower
+
+##### JavaScript
+
+Include Bower dependencies by configuring requirejs to find them. This is a manual process at the moment (see #40 for more info). When you install a new Bower component, open up `config/build.js` and add it to the paths config. Since grunt builds from a tmp directory, you will need to prefix the paths with '../../../../../bower_components' (see #55).
+
+##### Stylesheets
+
+Half Pipe configures Sass automatically to include your configured bower components directory. For example, to import bourbon into your app add 'bourbon' to your `bower.json` as a dependency and then include it by adding:
+
+```sass
+@import "bourbon/app/assets/stylesheets/bourbon";
+```
+
+to `app/styles/main.scss`.
+
+If you have a bower component that includes standard css files instead of Sass templates, you can include those the same way, but prefixing the path with 'CSS:'. For example, to include normalize.css add normalize-css as a dependency to your `bower.json` and then include it with:
+
+```sass
+@import "CSS:normalize-css/normalize";
+```
 
 ### Directory Structure
 
@@ -35,110 +92,25 @@ We believe that the directory structured imposed by the Rails asset pipeline was
 - `app/scripts` - Javascript files (currently all RequireJS modules)
 - `app/styles` - Sass templates
 
-#### Rails Generator
-
-In a Rails app, use `rails g half_pipe:install` to get started. This will generate the directory structure and any files necessary for your Grunt workflow.
-
-<table>
-<thead>
-<tr>
-  <th>
-    Generated
-  </th>
-  <th>
-    Purpose
-  </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>Gruntfile.js</td>
-  <td>
-    Main configuration for your Grunt tasks
-  </td>
-</tr>
-<tr>
-  <td>bower.json</td>
-  <td>
-    3rd-party asset dependencies (includes normalize-css, requirejs, and html5shiv by default)
-  </td>
-</tr>
-<tr>
-  <td>package.json</td>
-  <td>
-    NPM dependencies (ie. Bower, Grunt, any Grunt tasks)
-  </td>
-</tr>
-<tr>
-  <td>.jshintrc</td>
-  <td>
-    Linting configuration for Javascript
-  </td>
-</tr>
-<tr>
-  <td>app/scripts/application.js</td>
-  <td>
-    Entry point for requirejs; includes requirejs configuration, main module require and bootstraps page
-  </td>
-</tr>
-<tr>
-  <td>app/scripts/main.js</td>
-  <td>
-    Main module for your app; includes page initialization and requires any modules necessary for initialization
-  </td>
-</tr>
-<tr>
-  <td>config/initializers/sass.rb</td>
-  <td>
-    Bootstraps Sass with bower importer
-  </td>
-</tr>
-</table>
-
-Beyond these files, the generator also removes sprockets from `config/application.rb` and replaces `javascript_include_tag "application"` in your application layout with `requirejs_include_tag "/scripts/application.js"`.
-
-#### Post-generator Tasks
-
-If you're in an app with existing assets, the generator **DOES NOT** touch them. It is up to you to move them into their new homes and incorporate any existing Javascript files into `requirejs` modules.
-
-### Building Assets
-
-Build assets by running `grunt build`. This will compile Javascripts to `public/scripts` and stylesheets to `public/styles`.
-
-### Configuration
-
-In this early release if you want to configure anything, you'll have to manually change `Gruntfile.js`. We'd like to make this more invisible in the future; please post any use cases for configuration as Github issues.
-
 ## History
 
-### 07/22/2013 v0.2.0
-
-- Removes dependency on rack-asset-compiler and embeds the code in this gem
-
-### 07/19/2013 v0.1.0
-
-- Override Rails' `rake assets:precompile` to run `grunt build` for easier deployments
-- Allow for configuring asset server with `config.half_pipe.serve_assets = true|false`
-- Use Almond for requirejs optimization so as not to need requirejs in production
-
+For a detailed history, see [our releases page][releases].
 
 ## Roadmap
 
 We're currently undergoing some pretty major changes in the Half Pipe workflow. See our [milestones][] for what's coming in the near future.
 
-## Future Features
+### Other Considerations
 
 - Precompilation of client-side templates
 - Javascript module generator
 - Configurable asset directories
-- Configurable build directories
 - Better support for images
 - Support for additional module loaders (including ES6 modules)
-- Padrino support
-- Middleman support
+- Support for other frameworks and environments
 - Support for most popular [AltJS](http://www.altjs.com) languages
-- BYO support for less common languages
-- Automatic symlinking of CSS files within bower to SCSS partials within `app/styles`
-- Read .bowerrc for Bower directory
+- Splitting out app skeleton from node/grunt setup
 
 [milestones]: http://github.com/d-i/half-pipe/issues/milestones
+[issue]: http://github.com/d-i/half-pipe/issues/new
+[releases]: http://github.com/d-i/half-pipe/releases
