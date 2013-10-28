@@ -44,6 +44,8 @@ Run `grunt server` and Half Pipe will start up your Rails app with a preview ser
 
 If you don't need to work on assets, nothing really changes for you. If you've never used grunt before, install it with `npm install -g grunt-cli`. Then run `npm install` to install dependencies and then `grunt build:public` to get the assets into your public folder. Once you've done that, you will only need to use grunt when you need to get the latest changes to assets (this step will go away in the future, see #31).
 
+## Usage
+
 There are built-in helpers for referencing most assets.
 
 - `image\_tag "avatar.png"` will reference /assets/images/avatar.png
@@ -54,8 +56,6 @@ Half Pipe also provides helpers for Sass:
 
 - `image-url('avatar.png')` compiles to url(/assets/images/avatar.png)
 - `image-path('avatar.png')` compiles to /assets/images/avatar.png
-
-## Usage
 
 #### Usage of the app folder
 
