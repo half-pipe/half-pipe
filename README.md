@@ -10,9 +10,9 @@ Half Pipe is a generator to get you up and running quickly with a Grunt setup fo
 
 This initial release assumes you have been using [Grunt.js](http://www.gruntjs.com) in non-Rails apps and would like to start using it in Rails as well. It uses [Bower](http://bower.io) for dependency management, [RequireJS](http://www.requirejs.org) for Javascript modules and Sass for CSS. If you use alternatives to these tools, we'd love to [hear from you][issue].
 
-## Alpha Version
+## Beta Version
 
-**NOTE** This README refers to the alpha version of Half Pipe. I highly recommend using the alpha and following this README, but if you are on the 0.2 version please see [the previous README](https://github.com/d-i/half-pipe/blob/4a68659f215f939f7da9d3e5e8756c7f31a86177/README.md).
+**NOTE** This README refers to the beta version of Half Pipe. I highly recommend using the beta and following this README, but if you are on the 0.2 version please see [the previous README](https://github.com/d-i/half-pipe/blob/4a68659f215f939f7da9d3e5e8756c7f31a86177/README.md).
 
 ## We Want Feedback
 
@@ -25,7 +25,7 @@ Half Pipe is still in the early stages of development. The workflow has been ext
 The Half Pipe gem is mostly a vehicle to bring a nice Grunt workflow into your Rails app. To set it up, add the following to your Gemfile:
 
 ```
-gem 'half-pipe', '~>0.3.0.alpha'
+gem 'half-pipe', '~>0.3.0.beta'
 ```
 
 After you install the gem, you can run `rails g half_pipe:install` to setup the Grunt workflow. This will configure your app for node.js, copy over the Grunt setup, install node modules and run `grunt build:public`.
