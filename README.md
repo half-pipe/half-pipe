@@ -28,7 +28,7 @@ The Half Pipe gem is mostly a vehicle to bring a nice Grunt workflow into your R
 gem 'half-pipe', '~>0.3.0.alpha'
 ```
 
-After you install the gem, you can run `rails g half\_pipe:install` to setup the Grunt workflow. This will configure your app for node.js, copy over the Grunt setup, install node modules and run `grunt build:public`.
+After you install the gem, you can run `rails g half_pipe:install` to setup the Grunt workflow. This will configure your app for node.js, copy over the Grunt setup, install node modules and run `grunt build:public`.
 
 From here you can move your stylesheets from `app/assets/stylesheets` to `app/styles` (make sure you replace [Sprockets directives](https://github.com/sstephenson/sprockets#managing-and-bundling-dependencies) with [Sass imports](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#import).
 
@@ -42,7 +42,7 @@ Run `grunt server` and Half Pipe will start up your Rails app with a preview ser
 
 #### Back-end Developer Workflow
 
-If you don't need to work on assets, nothing really changes for you. If you've never used grunt before, install it with `npm install -g grunt-cli`. Then run `npm install` to install dependencies and then `grunt build:public` to get the assets into your public folder. Once you've done that, you will only need to use grunt when you need to get the latest changes to assets (this step will go away in the future, see d-i/half-pipe#31).
+If you don't need to work on assets, nothing really changes for you. If you've never used grunt before, install it with `npm install -g grunt-cli`. Then run `npm install` to install dependencies and then `grunt build:public` to get the assets into your public folder. Once you've done that, you will only need to use grunt when you need to get the latest changes to assets (this step will go away in the future, see [#31][issue-31]).
 
 ## Usage
 
@@ -67,7 +67,7 @@ Only put assets that need to be processed by grunt in the app folder. For exampl
 
 ##### JavaScript
 
-Include Bower dependencies by configuring requirejs to find them. This is a manual process at the moment (see d-i/half-pipe#40 for more info). When you install a new Bower component, open up `config/build.js` and add it to the paths config. Since grunt builds from a tmp directory, you will need to prefix the paths with '../../../../../bower_components' (see d-i/half-pipe#55).
+Include Bower dependencies by configuring requirejs to find them. This is a manual process at the moment (see [#40][issue-40] for more info). When you install a new Bower component, open up `config/build.js` and add it to the paths config. Since grunt builds from a tmp directory, you will need to prefix the paths with '../../../../../bower_components' (see [#55][issue-55]).
 
 ##### Stylesheets
 
@@ -114,3 +114,6 @@ We're currently undergoing some pretty major changes in the Half Pipe workflow. 
 [milestones]: http://github.com/d-i/half-pipe/issues/milestones
 [issue]: http://github.com/d-i/half-pipe/issues/new
 [releases]: http://github.com/d-i/half-pipe/releases
+[issue-31]: http://github.com/d-i/half-pipe/issues/31
+[issue-40]: http://github.com/d-i/half-pipe/issues/40
+[issue-55]: http://github.com/d-i/half-pipe/issues/55
