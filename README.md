@@ -42,7 +42,7 @@ Run `grunt server` and Half Pipe will start up your Rails app with a preview ser
 
 #### Back-end Developer Workflow
 
-If you don't need to work on assets, nothing really changes for you. If you've never used grunt before, install it with `npm install -g grunt-cli`. Then run `npm install` to install dependencies and then `grunt build:public` to get the assets into your public folder. Once you've done that, you will only need to use grunt when you need to get the latest changes to assets (this step will go away in the future, see #31).
+If you don't need to work on assets, nothing really changes for you. If you've never used grunt before, install it with `npm install -g grunt-cli`. Then run `npm install` to install dependencies and then `grunt build:public` to get the assets into your public folder. Once you've done that, you will only need to use grunt when you need to get the latest changes to assets (this step will go away in the future, see d-i/half-pipe#31).
 
 ## Usage
 
@@ -67,7 +67,7 @@ Only put assets that need to be processed by grunt in the app folder. For exampl
 
 ##### JavaScript
 
-Include Bower dependencies by configuring requirejs to find them. This is a manual process at the moment (see #40 for more info). When you install a new Bower component, open up `config/build.js` and add it to the paths config. Since grunt builds from a tmp directory, you will need to prefix the paths with '../../../../../bower_components' (see #55).
+Include Bower dependencies by configuring requirejs to find them. This is a manual process at the moment (see d-i/half-pipe#40 for more info). When you install a new Bower component, open up `config/build.js` and add it to the paths config. Since grunt builds from a tmp directory, you will need to prefix the paths with '../../../../../bower_components' (see d-i/half-pipe#55).
 
 ##### Stylesheets
 
