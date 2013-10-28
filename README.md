@@ -1,4 +1,4 @@
-# Half Pipe
+![](https://raw.github.com/d-i/halfpipe.io/master/media/logo.png)
 
 [![Stories in Ready](https://badge.waffle.io/d-i/half-pipe.png?label=ready)](http://waffle.io/d-i/half-pipe)
 
