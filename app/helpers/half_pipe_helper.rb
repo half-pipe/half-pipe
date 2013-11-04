@@ -7,8 +7,11 @@ module HalfPipeHelper
   end
 
   def image_tag(source, options={})
-    base = File.basename(source)
-    source = File.join("/assets", "images", base)
+    if source[0] != "/"
+      base = File.basename(source)
+      source = File.join("/assets", "images", base)
+    end
+
     super(source, options)
   end
 
