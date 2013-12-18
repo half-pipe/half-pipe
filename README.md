@@ -30,9 +30,11 @@ gem 'half-pipe', '~>0.3.0.beta'
 
 After you install the gem, you can run `rails g half_pipe:install` to setup the Grunt workflow. This will configure your app for node.js, copy over the Grunt setup, install node modules and run `grunt build:public`.
 
-From here you can move your stylesheets from `app/assets/stylesheets` to `app/styles` (make sure you replace [Sprockets directives](https://github.com/sstephenson/sprockets#managing-and-bundling-dependencies) with [Sass imports](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#import).
+From here you can move your stylesheets from `app/assets/stylesheets` to `app/styles` (make sure you replace [Sprockets directives](https://github.com/sstephenson/sprockets#managing-and-bundling-dependencies) with [Sass](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#import) or [Less](http://lesscss.org/#-importing) imports.
 
 You can also move JavaScripts into `app/scripts`, but take care to make sure you wrap them in requirejs modules (see http://mikemurry.com/getting-started-with-require-js/ for a quick overview of requirejs) or else you won't be able to build.
+
+**NOTE** You can run `rails g half_pipe:install` with the option `--processor=less` to setup the workflow with Less instead Sass.
 
 ### Working on Assets
 
