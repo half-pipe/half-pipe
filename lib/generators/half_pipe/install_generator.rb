@@ -43,7 +43,10 @@ module HalfPipe
       end
 
       def generate_stylesheets
-        template "app/styles/main.scss"
+        case options.processor
+          when 'sass' then template "app/styles/main.scss"
+          when 'less' then template "app/styles/main.less"
+        end
       end
 
       def insert_ignores
