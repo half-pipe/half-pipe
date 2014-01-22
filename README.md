@@ -34,7 +34,11 @@ From here you can move your stylesheets from `app/assets/stylesheets` to `app/st
 
 You can also move JavaScripts into `app/scripts`, but take care to make sure you wrap them in requirejs modules (see http://mikemurry.com/getting-started-with-require-js/ for a quick overview of requirejs) or else you won't be able to build.
 
-**NOTE** You can run `rails g half_pipe:install` with the option `--processor=less` to setup the workflow with Less instead Sass.
+#### LESS
+
+To setup your workflow to use LESS instead of SASS you can do so with the `processor` option:
+
+    rails g half_pipe:install --processor=less
 
 ### Working on Assets
 
