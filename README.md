@@ -36,9 +36,12 @@ You can also move JavaScripts into `app/scripts`, but take care to make sure you
 
 #### LESS
 
+Note: Currently LESS is only available in master, it will be in a future release of the gem. Make sure you update your Gemfile accordingly if you need it.
+
 To setup your workflow to use LESS instead of SASS you can do so with the `processor` option:
 
     rails g half_pipe:install --processor=less
+
 
 ### Working on Assets
 
