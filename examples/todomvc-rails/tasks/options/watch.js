@@ -1,6 +1,6 @@
 module.exports = {
   debug: {
-    files: ['app/scripts/**/*', 'app/styles/**/*'],
+    files: ['app/scripts/**/*', 'app/styles/**/*', 'config/build.js'],
     tasks: ['build:debug']
   },
   rails: {

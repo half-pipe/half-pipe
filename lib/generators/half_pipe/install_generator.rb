@@ -1,14 +1,16 @@
 module HalfPipe
   module Generators
     class InstallGenerator < Rails::Generators::Base
-
       desc "Installs basic Grunt/Bower setup with Sass & requirejs to your Rails project"
+
+      class_option :processor, default: 'sass', desc: 'Specify the css pre-processor SASS/LESS', aliases: :p
 
       def self.source_root
         @_half_pipe_source_root ||= File.expand_path("../templates", __FILE__)
       end
 
       def create_config_files
+        say "Installing using #{options.processor}"
         template "package.json", "package.json"
         template "_bowerrc", ".bowerrc"
         template "bower.json", "bower.json"
@@ -41,7 +43,10 @@ module HalfPipe
       end
 
       def generate_stylesheets
-        template "app/styles/main.scss"
+        case options.processor
+          when 'sass' then template "app/styles/main.scss"
+          when 'less' then template "app/styles/main.less"
+        end
       end
 
       def insert_ignores
@@ -82,7 +87,6 @@ module HalfPipe
 
 
       def finalize
-
         say "You may now safely migrate your assets to app/scripts and/or app/styles. Feel free to delete app/assets/javascripts and app/assets/stylesheets when you're done."
       end
 

@@ -9,7 +9,7 @@ GIT
 PATH
   remote: ../../
   specs:
-    half-pipe (0.3.0.alpha.4)
+    half-pipe (0.3.0.beta.1)
       rails (~> 4.0.0)
       sass
 
