@@ -20,6 +20,8 @@ Half Pipe is still in the early stages of development. The workflow has been ext
 
 ## Getting Started
 
+Half Pipe was presented in the talk "Asset Happiness" which you can [watch on YouTube](http://www.youtube.com/watch?v=2gaZsFkZ2BQ).
+
 ### Installing
 
 The Half Pipe gem is mostly a vehicle to bring a nice Grunt workflow into your Rails app. To set it up, add the following to your Gemfile:
