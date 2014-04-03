@@ -116,7 +116,7 @@ We're currently undergoing some pretty major changes in the Half Pipe workflow. 
 - Better support for images
 - Support for additional module loaders (including ES6 modules)
 - Support for other frameworks and environments
-- Support for most popular [AltJS](http://www.altjs.com) languages
+- Support for most popular [AltJS](http://www.altjs.org) languages
 - Splitting out app skeleton from node/grunt setup
 
 [milestones]: http://github.com/d-i/half-pipe/issues/milestones
