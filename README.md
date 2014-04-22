@@ -26,7 +26,7 @@ Half Pipe was presented in the talk "Asset Happiness" which you can [watch on Yo
 
 The Half Pipe gem is mostly a vehicle to bring a nice Grunt workflow into your Rails app. To set it up, add the following to your Gemfile:
 
-    gem 'half-pipe', '~> 0.3.0.beta'
+    gem 'half-pipe', :github => "d-i/half-pipe"
 
 After you install the gem, you can run `rails g half_pipe:install` to setup the Grunt workflow. This will configure your app for [node.js](http://nodejs.org/), copy over the Grunt setup, install node modules and run `grunt build:public`.
 
