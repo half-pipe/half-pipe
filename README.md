@@ -75,7 +75,7 @@ Only put assets that need to be processed by Grunt in the app folder. For exampl
 
 ##### JavaScript
 
-Include Bower dependencies by configuring RequireJS to find them. This is a manual process at the moment (see [#40][issue-40] for more info). When you install a new Bower component, open up `config/build.js` and add it to the paths config. Since grunt builds from a tmp directory, you will need to prefix the paths with '../../../../../bower_components' (see [#55][issue-55]).
+Include Bower dependencies by configuring RequireJS to find them. This is a manual process at the moment (see [#40][issue-40] for more info). When you install a new Bower component, open up `config/build.js` and add it to the paths config. Since grunt builds from a tmp directory, you will need to prefix the paths with '../../../../../bower_components' (see [#55][issue-55]). You need to add it  in 'app/scripts/main.js' as well.
 
 ##### Stylesheets
 
