@@ -25,13 +25,17 @@ module HalfPipe
         railties_requires = File.read(File.join(self.class.source_root, "railties.rb"))
         gsub_file "config/application.rb", %r{require 'rails/all'}, railties_requires
 
-        gsub_file "app/views/layouts/application.html.erb", %r{\s*<%= stylesheet_link_tag\s+"application".*%>$}, ''
-        gsub_file "app/views/layouts/application.html.erb", %r{\s*<%= javascript_include_tag\s+"application".*%>$}, ''
+        if test ?f, "app/views/layouts/application.html.erb"
+          gsub_file "app/views/layouts/application.html.erb", %r{\s*<%= stylesheet_link_tag\s+"application".*%>$}, ''
+          gsub_file "app/views/layouts/application.html.erb", %r{\s*<%= javascript_include_tag\s+"application".*%>$}, ''
+        end
       end
 
       def insert_includes_into_layout
-        insert_into_file "app/views/layouts/application.html.erb", %Q{  <%= javascript_include_tag "/assets/scripts/application.js" %>\n  }, before: "</body>"
-        insert_into_file "app/views/layouts/application.html.erb", %Q{  <%= stylesheet_link_tag "/assets/styles/main" %>\n  }, before: "</head>"
+        if test ?f, "app/views/layouts/application.html.erb"
+          insert_into_file "app/views/layouts/application.html.erb", %Q{  <%= javascript_include_tag "/assets/scripts/application.js" %>\n  }, before: "</body>"
+          insert_into_file "app/views/layouts/application.html.erb", %Q{  <%= stylesheet_link_tag "/assets/styles/main" %>\n  }, before: "</head>"
+        end
       end
 
       def generate_scripts
