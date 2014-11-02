@@ -54,7 +54,7 @@ module HalfPipe
       end
 
       def insert_ignores
-        append_to_file ".gitignore", %w(node_modules bower_components public/assets/* !public/assets/images).join("\n"), force: true
+        append_to_file ".gitignore", %w(node_modules bower_components public/assets/* !public/assets/images).join("\n")+"\n", force: true
       end
 
       def generate_task_config_files
