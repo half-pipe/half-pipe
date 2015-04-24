@@ -32,7 +32,7 @@ After you install the gem, you can run `rails g half_pipe:install` to setup the 
 
 From here you can move your stylesheets from `app/assets/stylesheets` to `app/styles` (make sure you replace [Sprockets directives](https://github.com/sstephenson/sprockets#managing-and-bundling-dependencies) with [Sass](http://sass-lang.com/documentation/file.SASS_REFERENCE.html#import) or [Less](http://lesscss.org/#-importing) imports.
 
-You can also move JavaScript files into `app/scripts`, but take care to make sure you wrap them in RequireJS modules (see http://mikemurry.com/getting-started-with-require-js/ for a quick overview of RequireJS) or else you won't be able to build.
+You can also move JavaScript files into `app/scripts`, but take care to make sure you wrap them in RequireJS modules (see http://www.objectliteral.com/getting-started-with-require-js/ for a quick overview of RequireJS) or else you won't be able to build.
 
 #### LESS
 
