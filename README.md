@@ -1,6 +1,6 @@
 ![](https://raw.github.com/d-i/halfpipe.io/master/media/logo.png)
 
-[![Stories in Ready](https://badge.waffle.io/d-i/half-pipe.png?label=ready)](http://waffle.io/d-i/half-pipe)
+[![Stories in Ready](https://badge.waffle.io/half-pipe/half-pipe.png?label=ready)](http://waffle.io/half-pipe/half-pipe)
 
 Gem to replace the Rails asset pipeline with a [Grunt](http://gruntjs.com/)-based workflow, providing dependencies via [Bower](http://bower.io/).
 
@@ -12,7 +12,7 @@ This initial release assumes you have been using Grunt in non-Rails apps and wou
 
 ## Beta Version
 
-**NOTE** This README refers to the beta version of Half Pipe. I highly recommend using the beta and following this README, but if you are on the 0.2 version please see [the previous README](https://github.com/d-i/half-pipe/blob/4a68659f215f939f7da9d3e5e8756c7f31a86177/README.md).
+**NOTE** This README refers to the beta version of Half Pipe. I highly recommend using the beta and following this README, but if you are on the 0.2 version please see [the previous README](https://github.com/half-pipe/half-pipe/blob/4a68659f215f939f7da9d3e5e8756c7f31a86177/README.md).
 
 ## We Want Feedback
 
@@ -26,7 +26,7 @@ Half Pipe was presented in the talk "Asset Happiness" which you can [watch on Yo
 
 The Half Pipe gem is mostly a vehicle to bring a nice Grunt workflow into your Rails app. To set it up, add the following to your Gemfile:
 
-    gem 'half-pipe', :github => "d-i/half-pipe"
+    gem 'half-pipe', :github => "half-pipe/half-pipe"
 
 After you install the gem, you can run `rails g half_pipe:install` to setup the Grunt workflow. This will configure your app for [node.js](http://nodejs.org/), copy over the Grunt setup, install node modules and run `grunt build:public`.
 
@@ -119,9 +119,9 @@ We're currently undergoing some pretty major changes in the Half Pipe workflow. 
 - Support for most popular [AltJS](http://www.altjs.org) languages
 - Splitting out app skeleton from node/grunt setup
 
-[milestones]: http://github.com/d-i/half-pipe/issues/milestones
-[issue]: http://github.com/d-i/half-pipe/issues/new
-[releases]: http://github.com/d-i/half-pipe/releases
-[issue-31]: http://github.com/d-i/half-pipe/issues/31
-[issue-40]: http://github.com/d-i/half-pipe/issues/40
-[issue-55]: http://github.com/d-i/half-pipe/issues/55
+[milestones]: http://github.com/half-pipe/half-pipe/milestones
+[issue]: http://github.com/half-pipe/half-pipe/issues/new
+[releases]: http://github.com/half-pipe/half-pipe/releases
+[issue-31]: http://github.com/half-pipe/half-pipe/issues/31
+[issue-40]: http://github.com/half-pipe/half-pipe/issues/40
+[issue-55]: http://github.com/half-pipe/half-pipe/issues/55
